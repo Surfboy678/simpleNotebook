@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>NOTES</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+
+
+</head>
+<body>
+<div class="container">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>title</td>
+            <td>content</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" note : ${note}">
+            <td th:text="${note.id}"></td>
+            <td th:text="${note.title}"></td>
+            <td th:text="${note.content}"></td>
+
+            <td><a th:href="@{/notes/getById/{id}(id=${note.id})}">update</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <div class="row">
+            <a href="/notes/newNote">Add note</a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
